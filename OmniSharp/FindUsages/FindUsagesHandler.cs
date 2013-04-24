@@ -37,6 +37,7 @@ namespace OmniSharp.FindUsages
                             .ThenBy(n => n.StartLocation.Column);
                             
             var res = new FindUsagesResponse();
+
             if (result.Any())
             {
                 var usages = result.Select(node => new QuickFix
