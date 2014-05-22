@@ -273,6 +273,10 @@ function! OmniSharp#CodeFormat()
 	python codeFormat()
 endfunction
 
+function! OmniSharp#FixUsings()
+    python fix_usings()
+endfunction
+
 function! OmniSharp#ServerIsRunning()
 	try
 		python vim.command("let s:alive = '" + getResponse("/checkalivestatus", None, 0.2) + "'");
