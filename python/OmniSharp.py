@@ -190,8 +190,10 @@ def codeFormat():
     setBuffer(response["Buffer"])
 
 def fix_usings():
-    response = json.loads(getResponse('/fixusings'))
-    setBuffer(response["Buffer"])
+    response = getResponse('/fixusings')
+    js = json.loads(response)
+    setBuffer(js["Buffer"])
+    return get_quickfix_list(response, 'AmbiguousResults')
 
 def addReference():
     parameters = {}
