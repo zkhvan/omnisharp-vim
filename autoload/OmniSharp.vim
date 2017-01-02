@@ -545,7 +545,7 @@ function! OmniSharp#RunAsyncCommand(command) abort
     call dispatch#start(a:command, {'background': 1})
   else
     if is_vimproc
-      call vimproc#system_gui(substitute(a:command, '\\', '\/', 'g'))
+      call vimproc#popen2(substitute(a:command, '\\', '\/', 'g'))
     else
       echoerr 'Please install either vim-dispatch or vimproc plugin to use this feature'
     endif
